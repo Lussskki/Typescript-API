@@ -4,13 +4,12 @@
     "rootDir": "./src",
     "outDir": "./dist",
 
-    // Environment Settings
-    "module": "ES6",
-    "target": "ES6",
-    "moduleResolution": "node",       // Important for Node packages
-    "esModuleInterop": true,          // Important for default imports like dotenv
-    "allowSyntheticDefaultImports": true,
-    "types": ["node"],                // Include Node.js types
+  
+    "module": "ESNext",
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+ 
 
     // Other Outputs
     "sourceMap": true,
@@ -27,5 +26,6 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force"
+    
   }
 }
