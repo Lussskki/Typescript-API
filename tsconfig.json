@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    // File layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Environment Settings
+    "module": "ES6",
+    "target": "ES6",
+    "moduleResolution": "node",       // Important for Node packages
+    "esModuleInterop": true,          // Important for default imports like dotenv
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"],                // Include Node.js types
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+    "skipLibCheck": true,
+
+    // Module checks
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force"
+  }
+}
