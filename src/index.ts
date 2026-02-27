@@ -1,16 +1,27 @@
-import express from 'express'
-import type { Request, Response } from 'express'
+import express from "express";
+import dotenv from "dotenv";
+import authRoutes from "./routes/authRoutes";
 
-const app = express()
-const PORT = 3000
+import { connectDB } from "./database/mongoose"; 
 
-app.use(express.json())
+dotenv.config();
 
-app.get('/', (req: Request, res: Response) => {
-    res.send({message: `Here is GET method`})
-})
+const app = express();
+
+app.use(express.json());
+
+app.use("/api/auth", authRoutes);
 
 
-app.listen(PORT, () => {
-    console.log(`Running on ${PORT}`)
-})
+const PORT = process.env.PORT || 3000;
+
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("DB connection failed:", err);
+    process.exit(1);
+  });
