@@ -3,6 +3,7 @@
     // File layout
     "rootDir": "./src",
     "outDir": "./dist",
+    
 
   
     "module": "ESNext",
@@ -27,5 +28,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force"
     
-  }
+  },
+  "include": ["src/**/*"]
 }
