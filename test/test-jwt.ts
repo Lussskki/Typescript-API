@@ -1,4 +1,4 @@
-const BASE = "http://localhost:3000/api/auth/profile"; // make sure this route exists
+const BASE = "http://localhost:3000/api/auth/profile"; 
 
 async function print(res: Response, label: string) {
   const text = await res.text();
