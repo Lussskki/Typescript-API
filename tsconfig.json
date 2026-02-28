@@ -29,5 +29,5 @@
     "moduleDetection": "force"
     
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/types/**/*"]
 }
