@@ -4,6 +4,7 @@ import authRoutes from "./routes/authRoutes";
 
 import { apiLimiter } from "./middlewares/rateLimits";
 import { connectDB } from "./database/mongoose"; 
+import { env } from "./config/env"
 
 dotenv.config();
 
@@ -15,12 +16,12 @@ app.use(apiLimiter);
 app.use("/api/auth", authRoutes);
 
 
-const PORT = process.env.PORT || 3000;
+
 
 connectDB()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+    app.listen(env.PORT, () => {
+      console.log(`Server running on port ${env.PORT}`);
     });
   })
   .catch((err) => {
