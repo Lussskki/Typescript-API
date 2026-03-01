@@ -1,5 +1,6 @@
 import { Router } from "express";
 import type { JwtPayload } from "jsonwebtoken";
+import { authLimiter } from "../middlewares/rateLimits";
 
 import { loginController } from "../controllers/loginController";
 import { signupController } from "../controllers/signupController";
@@ -8,8 +9,8 @@ import { User } from "../models/user"
 
 const router = Router();
 
-router.post("/signup", signupController);
-router.post("/login", loginController);
+router.post("/signup", authLimiter, signupController);
+router.post("/login", authLimiter, loginController);
 router.get("/profile", authMiddleware, async (req, res) => {
   const payload = req.user as JwtPayload;
 
