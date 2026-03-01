@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes";
 
+import { apiLimiter } from "./middlewares/rateLimits";
 import { connectDB } from "./database/mongoose"; 
 
 dotenv.config();
@@ -9,6 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(apiLimiter);
 
 app.use("/api/auth", authRoutes);
 
